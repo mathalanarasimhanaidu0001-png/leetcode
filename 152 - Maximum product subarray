@@ -14,7 +14,7 @@ public:
         {
              int num=nums[i];
 
-            if(n < 0)
+            if(num < 0)
             {
                
                 swap(current_max,current_min);
