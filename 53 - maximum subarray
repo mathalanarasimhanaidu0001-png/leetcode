@@ -1,4 +1,5 @@
-MAX SUBARRAY USING KADANE ALGO
+MAX SUBARRAY USING KADANE ALGO - PATTERN
+VISUAL - curr = max (x,curr + x ); best = max(best , curr)
 
 
 class Solution {
