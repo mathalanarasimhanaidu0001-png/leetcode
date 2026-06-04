@@ -1,4 +1,5 @@
-TWO SUM USING HASH MAP
+PATTERN - HASH MAP
+VISUAL - Seen[target - x] look up
 
 
 class Solution {
