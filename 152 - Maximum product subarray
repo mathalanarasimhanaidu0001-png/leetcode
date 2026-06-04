@@ -1,4 +1,5 @@
  MAX PRODUCT SUBARRAY USING TRACK MIN AND MAX PATTERN
+ VISUAL -  negative flips min <-> max
 
 
  class Solution {
