@@ -28,6 +28,7 @@ public:
 
 
 ====>>  HASH SET PATTERN APPROACH
+        VISUAL - insert;if exists -> true 
 
 
 
