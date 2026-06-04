@@ -1,4 +1,5 @@
-153 solved using binary search pattern
+PATTERN -  binary search pattern
+VISUAL - compare mid vs  right to pick half 
 
 
 class Solution {
