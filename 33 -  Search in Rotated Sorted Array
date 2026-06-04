@@ -1,0 +1,48 @@
+ PATTERN - BINARY SEARCH WITH ROTATION 
+ VISUAL  - ONE HALF IS ALWAYS SORTED
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        // Boost up the speed
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        
+        int low = 0;
+        int high = nums.size() - 1;
+        
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            
+            // 1. If we find the target right away, return its position!
+            if (nums[mid] == target) {
+                return mid;
+            }
+            
+            // 2. Check if the Left Half is normally sorted
+            if (nums[low] <= nums[mid]) {
+                // Check if the target sits inside this clean Left Half
+                if (target >= nums[low] && target < nums[mid]) {
+                    high = mid - 1; // Search Left
+                } else {
+                    low = mid + 1;  // Search Right
+                }
+            } 
+            // 3. Otherwise, the Right Half must be normally sorted
+            else {
+                // Check if the target sits inside this clean Right Half
+                if (target > nums[mid] && target <= nums[high]) {
+                    low = mid + 1;  // Search Right
+                } else {
+                    high = mid - 1; // Search Left
+                }
+            }
+        }
+        
+        // If the loop finishes and we never found the target, return -1
+        return -1;
+    }
+};
