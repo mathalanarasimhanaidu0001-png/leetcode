@@ -1,0 +1,68 @@
+PATTERN -  SORT + TWO POINTER
+VISUAL - fix [i] , shrink window for pair sum
+
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        // Turbo-charge the execution speed
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        
+        vector<vector<int>> ans;
+        int n = nums.size();
+        
+        // Step 1: Sort the array from smallest to largest
+        sort(nums.begin(), nums.end());
+        
+        // Step 2: Fix the first element (the leader 'i')
+        for (int i = 0; i < n - 2; i++) {
+            // Skip duplicate leaders to avoid duplicate answers
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            
+            // Optimization: If the leader is greater than 0, 
+            // three positive numbers can never add up to 0! Stop completely.
+            if (nums[i] > 0) {
+                break;
+            }
+            
+            // Step 3: Set up the Two Pointers
+            int low = i + 1;
+            int high = n - 1;
+            
+            while (low < high) {
+                int sum = nums[i] + nums[low] + nums[high];
+                
+                if (sum == 0) {
+                    // Found a valid triplet! Save it.
+                    ans.push_back({nums[i], nums[low], nums[high]});
+                    
+                    // Move pointers and skip duplicate values for low and high
+                    while (low < high && nums[low] == nums[low + 1]) low++;
+                    while (low < high && nums[high] == nums[high - 1]) high--;
+                    
+                    // Move inward to continue searching
+                    low++;
+                    high--;
+                } 
+                else if (sum < 0) {
+                    // Sum is too small, move left pointer to a bigger number
+                    low++;
+                } 
+                else {
+                    // Sum is too big, move right pointer to a smaller number
+                    high--;
+                }
+            }
+        }
+        
+        return ans;
+    }
+};
