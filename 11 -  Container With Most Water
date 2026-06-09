@@ -1,0 +1,44 @@
+PATTERN = TWO POINTER 
+VISUAL = MOVE  SHORTER WALL INSIDE 
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int maxArea(vector<int>& height) {
+        // Super charge our code speed
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        
+        int max_water = 0;
+        int low = 0;
+        int high = height.size() - 1;
+        
+        // Loop until the two walls meet
+        while (low < high) {
+            // Find the distance between the two poles
+            int width = high - low;
+            
+            // The water level is limited by the shorter pole
+            int current_height = min(height[low], height[high]);
+            
+            // Calculate current water area
+            int current_water = width * current_height;
+            
+            // Update our high score if this pool holds more water
+            max_water = max(max_water, current_water);
+            
+            // Move the pointer that points to the shorter wall!
+            if (height[low] < height[high]) {
+                low++;
+            } else {
+                high--;
+            }
+        }
+        
+        return max_water;
+    }
+};
