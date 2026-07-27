@@ -1,0 +1,66 @@
+371 - SUM OF TWO NUMBERS
+[Bit XOR + carry ] - PATTERN.
+a ^ b =sum w/o carry ,(a & b ) << 1= carry (hint)
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int getSum(int a, int b) {
+        // Fast Input/Output optimization
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        
+        // Loop runs as long as there is a carry to add
+        while (b != 0) {
+            // Step 1: Find the carry bits and shift them left by 1 position
+            // (unsigned int) prevents negative number bit-overflow in C++
+            int carry = (unsigned int)(a & b) << 1;
+            
+            // Step 2: Calculate the sum WITHOUT carry using XOR
+            a = a ^ b;
+            
+            // Step 3: Pass the carry into b for the next round
+            b = carry;
+        }
+        
+        return a; // When b becomes 0, 'a' holds the final total sum!
+    }
+};
+
+
+
+
+TCS NQT Ready Code
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Fast I/O for performance
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int a, b;
+    
+    // Read the two inputs from the exam test case
+    if (cin >> a >> b) {
+        
+        // Bitwise addition algorithm (Half Adder simulation)
+        while (b != 0) {
+            // Cast to unsigned int to handle negative number shifts safely
+            unsigned int carry = (unsigned int)(a & b) << 1;
+            
+            a = a ^ b;  // Sum without carry
+            b = carry;  // Pass carry to next iteration
+        }
+        
+        // Print the final answer
+        cout << a << "\n";
+    }
+
+    return 0;
+}
