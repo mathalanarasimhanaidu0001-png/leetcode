@@ -1,0 +1,60 @@
+338 - counting bits
+[dp on bits] - PATTERN
+dp[i]=dp[i>>1]+(i&1)class Solution {
+public:
+    vector<int> countBits(int n) {
+         vector<int> ans(n+1,0);
+
+         for(int i=1;i<=n;i++){
+            ans[i] = ans[i >> 1] + (i&1);
+         }
+          return ans ;
+
+
+        
+    }
+};
+
+
+ tcs nqt solution 
+
+
+ #include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to calculate the number of set bits for each number up to n
+vector<int> countBits(int n) {
+    vector<int> ans(n + 1, 0);
+
+    for (int i = 1; i <= n; i++) {
+        // ans[i >> 1] gets the bits of (i / 2)
+        // (i & 1) checks if the current number is odd (adds 1 if true)
+        ans[i] = ans[i >> 1] + (i & 1);
+    }
+    
+    return ans;
+}
+
+int main() {
+    // Fast I/O for competitive programming
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    // Read the input size from standard input
+    if (cin >> n) {
+        vector<int> result = countBits(n);
+
+        // Print the output in the standard space-separated format
+        for (int i = 0; i <= n; i++) {
+            cout << result[i] << " ";
+        }
+        cout << "\n";
+    }
+
+    return 0;
+}
+
+
