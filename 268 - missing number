@@ -1,0 +1,57 @@
+268 - MISSING NUMBER 
+[ XOR or SUM ] -- PATTERN
+XOR all indices and values 
+LEETCODE STYLE
+
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        
+        // Expected sum of numbers from 0 to n
+        int expected_sum = n * (n + 1) / 2;
+        
+        // Calculate actual sum of elements in array
+        int actual_sum = 0;
+        for (int num : nums) {
+            actual_sum += num;
+        }
+        
+        // The difference is the missing number
+        return expected_sum - actual_sum;
+    }
+};
+
+
+TCS NQT style
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    // Fast I/O
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int n;
+    // Read the size of array
+    if (cin >> n) {
+        vector<int> nums(n);
+        int actual_sum = 0;
+
+        // Read n array elements and calculate actual sum
+        for (int i = 0; i < n; i++) {
+            cin >> nums[i];
+            actual_sum += nums[i];
+        }
+
+        // Expected sum from 0 to n
+        int expected_sum = n * (n + 1) / 2;
+
+        // Print missing number directly
+        cout << expected_sum - actual_sum << "\n";
+    }
+
+    return 0;
+}
