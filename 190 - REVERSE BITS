@@ -1,0 +1,20 @@
+190 - REVERSE BITS
+[bit shift loop]- PATTERN
+PULL  LSB PUSH TO RESULT MSB
+
+
+leetcode style
+
+class Solution {
+public:
+    int reverseBits(int n) {
+        int ans=0;
+
+        for(int i=0;i<32;i++){
+            ans= ans << 1;
+            ans=ans  |(n&1);
+            n=n>>1;
+        }
+        return ans;
+    }
+};
