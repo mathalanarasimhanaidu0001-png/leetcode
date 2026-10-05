@@ -1,0 +1,60 @@
+LEET CODE
+1281. Subtract the Product and Sum of Digits of an Integer
+ (leeet code style)
+class Solution {
+public:
+    int subtractProductAndSum(int &n) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+
+         
+        int   product=1;
+        int sum = 0 ;
+        while(n>0){
+            int digit= n%10;
+              product = product*digit;
+             sum = sum+digit;
+            n = n/10;
+
+
+        }
+        int result= product - sum;
+        return result;
+        
+    }
+};
+
+(infosys / tcs style )
+
+#include<bits/stdc++.h>
+using namespace std;
+class solution{
+    public:
+    int subtractproductandsum(int n){
+    
+    
+    
+    int product = 1;
+    int sum = 0;
+     while(n > 0){
+         int digit = n%10;
+         product = product * digit;
+         sum = sum + digit;
+         n=n/10;
+     }
+     int result = product - sum;
+     return result;
+     
+    }
+};
+ int main(){
+     ios_base::sync_with_stdio(false);
+     cin.tie(NULL);
+     int n;
+     cin>>n;
+     
+     solution obj;
+     int result= obj.subtractproductandsum( n);
+     
+     cout<<result<<'\n';
+ }
