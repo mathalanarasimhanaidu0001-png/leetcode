@@ -1,0 +1,65 @@
+1480. Running Sum of 1d Array
+(LEETCODE STYLE)
+
+class Solution {
+public:
+    vector<int> runningSum(vector<int>& nums) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+
+        int sum = 0;
+        int n= nums.size();
+
+        for(int i=1 ; i<n ;i++){
+            nums[i]=nums[i]+nums[i-1];
+             
+
+
+        }
+        return nums;
+        
+    }
+};
+
+(TCS / INFOSYS style)
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+
+class solution{
+    public:
+    
+    vector<int> runningsum(vector<int> & nums){
+        
+        int n= nums.size();
+        for(int i=1;i<n;i++){
+            nums[i]=nums[i]+nums[i-1];
+            
+        }
+        return nums;
+    }
+    
+};
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int n;
+    cin>>n;
+    
+    vector<int> nums(n);
+    for(int i=0;i<n;i++){
+        cin>>nums[i];
+    }
+    
+    solution obj;
+    
+    vector<int> result=obj.runningsum(nums);
+    for(int i=0;i<n;i++){
+        cout<<result[i]<<"  ";
+    }
+     return 0;
+}
