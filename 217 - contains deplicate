@@ -48,3 +48,46 @@ public:
         
     }.
 };
+
+
+(TCS / INFOSYS STYLE)
+
+#include<iostream>
+#include<vector>
+#include<unordered_set>
+using namespace std;
+
+class Solution {
+    public:
+    
+    bool contains_duplicate(vector<int> & nums){
+        
+        unordered_set<int> seen;
+        
+        for(int i=0;i<nums.size();i++){
+            if(seen.find(nums[i])!=seen.end()){
+                return true;
+            }
+            seen.insert(nums[i]);
+            
+        }
+        return false;
+        
+        
+    }
+};
+
+int main (){
+    int n ;
+    cout<<"enter size of array"  << "   ";
+    cin>>n;
+    
+    vector<int> nums(n);
+    for(int i=0;i<n;i++){
+        cout<<"enter elements or array "<<"   ";
+        cin>>nums[i];
+    }
+    Solution obj;
+    int result = obj.contains_duplicate(nums);
+    cout<<result;
+}
