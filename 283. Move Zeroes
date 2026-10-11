@@ -1,0 +1,101 @@
+283. Move Zeroes
+(LEET CODE STYLE)
+
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+
+        int j=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i] != 0){
+                swap(nums[i],nums[j]);
+                j++;
+            }
+        }
+
+        
+    }
+};
+
+(infosys / tcs style )
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+class Solution{
+    public:
+    
+    void movezeros(vector<int> &nums){
+        int j=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i] !=0){
+                swap(nums[i],nums[j]);
+                j++;
+            }
+        }
+    }
+};
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int n;
+    cin>>n;
+    int j=0;
+    
+    vector<int> nums(n);
+    for(int i=0;i<nums.size();i++){
+        cin>>nums[i];
+        
+    }
+    
+    Solution obj;
+    obj.movezeros(nums);
+    for(int i=0;i<nums.size();i++){
+        cout<<nums[i]<<"   ";
+    }
+    return 0;
+}
+
+
+(BRUTE FORCE METHOD)
+
+#include<iostream>
+#include<vector>
+using namespace std;
+class Solution{
+    public:
+    
+    void movezeros(vector<int>& nums){ // no xtra array so "void" return 
+        int n = nums.size();
+        for(int i=0;i<n;i++){
+            if(nums[i]==0){
+               for(int j=i+1;j<n;j++){
+                if(nums[j]!=0){
+                    swap(nums[j],nums[i]);
+                    break;
+                }
+            }}
+        }
+    }
+};
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int n;
+    cin>>n;
+    vector<int> nums(n);      // creates the original input array, not an extra array.
+    for(int i=0;i<n;i++){
+        cin>>nums[i];
+    }
+    
+    
+    Solution obj;
+    obj.movezeros(nums); // as we know "no return type so no int or any type beside this line "
+    for(int i=0;i<nums.size();i++){
+        cout<<nums[i]<<"  ";}
+}
