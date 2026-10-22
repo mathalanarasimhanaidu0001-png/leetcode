@@ -1,0 +1,63 @@
+344. Reverse String
+LEET CODE Style
+
+class Solution {
+public:
+    void reverseString(vector<char>& s) {
+        int left=0;
+        int right = s.size()-1;
+        while(left<right){
+            swap(s[left],s[right]);
+            left++;
+            right--;
+        }
+
+
+        
+    }
+};
+
+tcs /infosys style
+
+#include<iostream>
+#include<string>
+#include<vector>
+using namespace std;
+class Solution{
+    public:
+    void reverse_string(vector<char> & s){
+        int left=0;
+        int right=s.size()-1;
+        while(left < right){
+            swap(s[left],s[right]);
+            left++;
+            right--;
+        }
+    }
+};
+
+int main(){
+
+
+int n;
+cout<<"enter the size";
+cin>>n;
+
+vector<char> s(n);
+
+cout<<"enter the string";
+for(int i=0;i<s.size();i++){
+    cin>>s[i];
+    
+}
+
+Solution obj;
+obj.reverse_string(s);
+
+cout<<"reversed string is ";
+for(int i=0;i<s.size();i++){
+    cout<<s[i]<<"     ";
+}
+}
+
+
